@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+class Node{
+    -info:Integer
+    -left:Node
+    -right:Node
+}
+note left: This is actually \na BinaryTreeNode
+Node"1" --* "0..2"Node
+class RBNode extends Node{
+    -color:Color
+}
+enum Color{
+    RED
+    BLACK
+}
+@enduml

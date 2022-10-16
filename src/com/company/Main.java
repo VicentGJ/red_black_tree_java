@@ -3,7 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	    BinarySearchTree tree = new BinarySearchTree();
+        BinarySearchTree tree = new BinarySearchTree();
         tree.insert(50);
         tree.insert(30);
         tree.insert(20);
@@ -12,6 +12,10 @@ public class Main {
         tree.insert(60);
         tree.insert(80);
 
-        tree.inorder();
+//        tree.inorder();
+        InorderIterator<Node<Integer>> i = tree.inorderIterator();
+        while (i.hasNext()) {
+            System.out.print(i.next()+" ");
+        }
     }
 }
