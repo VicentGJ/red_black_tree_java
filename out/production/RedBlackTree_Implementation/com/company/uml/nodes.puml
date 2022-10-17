@@ -7,7 +7,7 @@ class Node{
     -left:Node
     -right:Node
 }
-note left: This is actually \na BinaryTreeNode
+note left: Acts like a \nBinaryTreeNode
 Node"1" --* "0..2"Node
 class RBNode extends Node{
     -color:Color
