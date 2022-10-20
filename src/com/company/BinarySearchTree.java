@@ -7,9 +7,8 @@ public class BinarySearchTree {
         return this.search(this.root, value);
     }
 
-    private Node<Integer> search(Node<Integer> node, int value)
-    {
-        if (node==null || node.getValue() == value) {
+    private Node<Integer> search(Node<Integer> node, int value) {
+        if (node == null || node.getValue() == value) {
             return node;
         }
         if (node.getValue() < value) {
@@ -47,13 +46,13 @@ public class BinarySearchTree {
             node.setRight(delete(node.getRight(), value));
 
         else {
-            if (node.getLeft()==null)
+            if (node.getLeft() == null)
                 return node.getRight();
             else if (node.getRight() == null) {
                 return node.getLeft();
             }
             node.setValue(minValue(node.getRight()));
-            node.setRight(delete(node.getRight(),node.getValue()));
+            node.setRight(delete(node.getRight(), node.getValue()));
         }
         return node;
     }
@@ -67,16 +66,26 @@ public class BinarySearchTree {
         return min;
     }
 
-    // This method mainly calls InorderRec()
-    public void inorder() { inorderRec(this.root); }
-
-    // A utility function to do inorder traversal of BST
-    private void inorderRec(Node<Integer> node)
-    {
-        if (node != null) {
-            inorderRec(node.getLeft());
-            System.out.print(node.getValue() + " ");
-            inorderRec(node.getLeft());
-        }
+//    // This method mainly calls InorderRec()
+//    public void inorder() {
+//        inorderRec(this.root);
+//    }
+//
+//    // A utility function to do inorder traversal of BST
+//    private void inorderRec(Node<Integer> node) {
+//        if (node != null) {
+//            inorderRec(node.getLeft());
+//            System.out.print(node.getValue() + " ");
+//            inorderRec(node.getLeft());
+//        }
+//    }
+    public InorderIterator<Node<Integer>> inorderIterator(){
+        return new InorderIterator<>(this);
+    }
+    public Node<Integer> getRoot() {
+        return root;
+    }
+    public void setRoot(Node<Integer> root) {
+        this.root = root;
     }
 }
